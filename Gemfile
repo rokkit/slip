@@ -22,6 +22,10 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem "rmagick"
 gem "carrierwave"
+gem 'capistrano'
+group :production do
+  gem 'mysql2'
+end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
