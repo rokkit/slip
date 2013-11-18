@@ -85,6 +85,8 @@ body {
 			position: absolute;
 			top: 100px;
 			left: 100px;
+			color: $green;
+			font-size: 2em;
 		}
 	}
 	.slidesjs-navigation {
@@ -104,6 +106,25 @@ body {
 	.slidesjs-next {
 		right: 0;
 		background: image-url("slider-next.png") no-repeat 0px 0px;
+	}
+	.slidesjs-pagination {
+		@include horizontal-nav(center);
+		.slidesjs-pagination-item {
+			margin: 0 4px;
+			a {
+				display: block;
+				width: 8px;
+				height: 8px;
+				padding: 0;
+				text-indent: -9999em;
+				overflow: hidden;
+				@include border-radius(10px);
+				background-color: $dark-gray;
+				&.active {
+					background-color: $green;
+				}
+			}
+		}
 	}
 }
 
