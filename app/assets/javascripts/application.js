@@ -15,3 +15,10 @@
 //= require jquery-fileupload/basic
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+	$("#slides").slidesjs({
+		width: 805,
+		height: 328
+	});
+});
