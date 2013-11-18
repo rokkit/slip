@@ -16,9 +16,12 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){
+var ready;
+ready = function(){
 	$("#slides").slidesjs({
 		width: 805,
 		height: 328
 	});
-});
+}
+$(document).ready(ready);
+$(document).on('page:load', ready);

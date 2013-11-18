@@ -25,6 +25,9 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       execute :touch, release_path.join('tmp/restart.txt')
+      execute "chmod 777 -R #{current_path}/log"
+      execute "chmod 777 -R #{current_path}/tmp"
+      execute "chmod 777 -R #{current_path}/public"
     end
   end
 
@@ -41,13 +44,19 @@ namespace :deploy do
   # after :finishing, 'solr:reindex'
 end
 
-namespace :solr do      
-  desc 'Start solr and reindex'                                                        
-  task :reindex do
-    on roles(:app), in: :sequence, wait: 5 do
-      run "cd #{release_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:solr:stop" 
-      run "cd #{release_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:solr:start" 
-      run "cd #{release_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:reindex" 
-    end
-  end
-end 
+# after :deploy do
+#   run "#{try_sudo} chmod 777 -R #{current_path}/log"
+#   run "#{try_sudo} chmod 777 -R #{current_path}/tmp"
+#   run "#{try_sudo} chmod 777 -R #{current_path}/public"
+# end
+
+# namespace :solr do      
+#   desc 'Start solr and reindex'                                                        
+#   task :reindex do
+#     on roles(:app), in: :sequence, wait: 5 do
+#       run "cd #{release_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:solr:stop" 
+#       run "cd #{release_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:solr:start" 
+#       run "cd #{release_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:reindex" 
+#     end
+#   end
+# end 
