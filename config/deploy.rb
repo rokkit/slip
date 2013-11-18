@@ -38,16 +38,16 @@ namespace :deploy do
   end
 
   after :finishing, 'deploy:cleanup'
-  after :finishing, 'solr:reindex'
+  # after :finishing, 'solr:reindex'
 end
 
 namespace :solr do      
   desc 'Start solr and reindex'                                                        
   task :reindex do
     on roles(:app), in: :sequence, wait: 5 do
-      run "cd #{current_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:solr:stop" 
-      run "cd #{current_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:solr:start" 
-      run "cd #{current_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:reindex" 
+      run "cd #{release_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:solr:stop" 
+      run "cd #{release_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:solr:start" 
+      run "cd #{release_path} && #{rake} RAILS_ENV=#{rails_env} sunspot:reindex" 
     end
   end
 end 
