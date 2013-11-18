@@ -1,0 +1,60 @@
+// Hide text
+@mixin hide-text($display: block) {
+    overflow: hidden;
+    text-indent: -9000px;
+    display: $display;
+}
+
+// px to em
+@function em($px, $base: $base-font-size) {
+    @return ($px / $base) * 1em;
+}
+
+// Clear nav
+@mixin clear-nav {
+    padding: 0;
+    margin: 0;
+    li {
+        list-style-type: none;
+        list-style-image: none;
+        padding: 0;
+        margin: 0;
+        a {
+            display: block;
+            padding: 0 em(6px);
+        }
+        ul {
+            padding-left: 1em;
+        }
+    }
+}
+
+// Horizontal nav
+@mixin horizontal-nav($direction: left, $dropdown: false, $drop-font: inherit) {
+    @include clear-nav;
+    text-align: $direction;
+    > li {
+        display: inline-block;
+        &:last-child {
+            margin-right: 0px;
+        }
+        @if $dropdown {
+            position: relative;
+            ul {
+                position: absolute;
+                width: $dropdown;
+                left: -9999em;
+                padding-left: 0;
+                text-align: left;
+                font-size: $drop-font;
+                z-index: 50;
+                li {
+                    display: block;
+                }
+            }
+            &:hover > ul {
+                left: 0;
+            }
+        }
+    }
+}

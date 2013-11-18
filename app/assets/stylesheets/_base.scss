@@ -1,0 +1,24 @@
+/* Font styles.*/
+body {
+  margin: 0;
+  font-size: $base-font-size;
+  line-height: 1.5em;
+  @include font;
+  letter-spacing: 0.03em;
+  color: $font-colour;
+}
+
+/* Links */
+a {
+  &:link, &:visited {
+    color: $link-colour;
+    text-decoration: none;
+  }
+}
+
+a {
+  &:hover, &:active {
+    color: $link-hover-colour;
+    text-decoration: underline;
+  }
+}

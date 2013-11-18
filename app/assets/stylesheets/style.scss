@@ -1,0 +1,83 @@
+//====== BODY
+body {
+	background-color: $light-gray;
+	@include filter-gradient(#e5e5e5, #e5e5e5, horizontal); // IE6-9
+	@include background-image(linear-gradient(left,  #e5e5e5 0%,#f0f0f0 50%,#e5e5e5 100%));
+}
+
+
+//====== HEADER
+#header {
+	background: image-url("header-mid.png") repeat-x center top;
+	.header-left-image {
+		background: image-url("header-left.png") no-repeat left top;
+	}
+	.header-right-image {
+		background: image-url("header-right.png") no-repeat right top;
+		height: 165px;
+	}
+}
+
+// Top nav
+#top-nav {
+	background-color: $dark-gray;
+	ul {
+		@include horizontal-nav(right);
+		li {
+			a {
+				padding: 8px 3px 5px 3px;
+				color: $green;
+			}
+		}
+	}
+}
+
+#branding {
+}
+
+#logo {
+	@include span-columns(2, 12);
+}
+
+.search-block {
+	margin-top: 50px;
+	@include span-columns(9 omega, 12);
+	background: image-url("search-mid.gif") repeat-x center top;
+	.search-left-image {
+		background: image-url("search-left.gif") no-repeat left top;
+	}
+	.search-right-image {
+		background: image-url("search-right.gif") no-repeat right top;
+		padding: 2px 10px 10px;
+	}
+	.search-input {
+		width: 93%;
+		border: 0 none;
+		padding: 10px 10px 10px 10px;
+		font-size: 1.2em;
+	}
+	.search-button {
+		border: 0 none;
+		overflow: hidden;
+		text-indent: -9999em;
+		background-color: transparent;
+		background: image-url("search-button.gif") no-repeat 0px 0px;
+		width: 20px;
+		height: 20px;
+	}
+}
+
+
+//====== CONTENT
+
+
+
+//====== SIDEBARS
+
+
+
+//====== FOOTER
+
+#footer {
+	border-top: 1px solid $dark-gray;
+}

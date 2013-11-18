@@ -1,0 +1,52 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "susy";
+
+// Add Compass' IE and vendor prefix support variables.
+@import "compass/support";
+
+// Better than Drupal's clearfix.
+@import "compass/utilities/general/clearfix";
+
+// See http://compass-style.org/help/tutorials/spriting/
+@import "compass/utilities/sprites";
+
+// Use one CSS3 mixin instead of multiple vendor prefixes.
+@import "compass/css3";
+
+// Helps set up a vertical rhythm.
+@import "compass/typography/vertical_rhythm";
+
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$total-columns  : 12;
+$column-width   : 6em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+
+// ---------------------------------------------------------------------------
+// Colours
+
+$dark-gray: #656565;
+$light-gray: #EAEAEA;
+$green: #8CC53F;
+
+$font-colour: $dark-gray;
+$link-colour: $green;
+$link-hover-colour: darken($green, 20%);
+
+// ---------------------------------------------------------------------------
+// Fonts
+
+$base-font-size: 12px;
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic);
+
+@mixin font() {
+	font-family: 'PT Sans', sans-serif;
+}
+
+
+

@@ -1,0 +1,10 @@
+// Main style
+#page,
+.region-inner {
+	@include container;
+	min-width: 860px;
+}
+
+#content {
+	@include span-columns(12 omega, 12);
+}
