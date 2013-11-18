@@ -1,11 +1,10 @@
-<h1>Listing products</h1>
-<%= render "search" %>
+<h1>Результаты поиска</h1>
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th>User</th>
+      <th>Наименование</th>
+      <th>Описание</th>
+      <th>Добавил</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,12 +14,13 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
+        <td><%= image_tag product.photos.first.photo.url(:thumb)%></td>
         <td><%= product.name %></td>
         <td><%= product.content %></td>
         <td><%= product.user %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Открыть', product %></td>
+        <td><%= link_to 'Изменить', edit_product_path(product) %></td>
+        <td><%= link_to 'Удалить', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'Добавить товар', new_product_path %>

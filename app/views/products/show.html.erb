@@ -26,7 +26,7 @@
 <p>
     <strong>Фото продукта:</strong>
     <% @product.photos.each do |photo| %>
-        <%= image_tag photo.photo.url.to_s %>
+        <%= image_tag photo.photo.url(:main).to_s %>
     <% end %>
 </p>
 

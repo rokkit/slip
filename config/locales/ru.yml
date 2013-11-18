@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    models:
+        product:
+            one: "Товар"
+            many: "Товары"
+    attributes:
+      product:
+          name: "Наменование"
+          content: "Описание"
