@@ -1,0 +1,8 @@
+<fieldset>
+    <%= f.input :name, label: "Наименование параметра" %>
+    <%= f.simple_fields_for :facet_values  do |builder| %>
+      <%= render 'facet_value_fields', f: builder %>   
+      <%= link_to "remove", '#', class: "remove_fields" %>
+    <% end %>
+    <%= link_to_add_fields "Добавить значение", f, :facet_values %>
+</fieldset>

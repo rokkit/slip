@@ -1,0 +1,22 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :content %>
+
+  <%= f.simple_fields_for :facets  do |builder| %>
+     <%= render 'facet_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Добавить параметр", f, :facets %>
+  <br>
+  <%= f.simple_fields_for :photos  do |p| %>
+      <%= p.label :photo, "Загрузить фото" %>
+      <%= p.file_field :photo, name: "product[photos_attributes][0][photo]" %>
+  <% end %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+  
+<% end %>
