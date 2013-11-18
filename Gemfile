@@ -23,7 +23,7 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem "rmagick"
 gem "carrierwave"
-gem 'capistrano'
+
 group :production do
   gem 'mysql2'
 end
@@ -33,4 +33,9 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  
+  gem 'capistrano', '~> 3.0'
+  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv', github: "capistrano/rbenv"
 end
