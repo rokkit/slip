@@ -11,7 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131115135853) do
+ActiveRecord::Schema.define(version: 20131117113913) do
+
+  create_table "facet_value_types", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "facet_values", force: true do |t|
+    t.string   "value"
+    t.integer  "facet_value_type_id"
+    t.integer  "facet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "facet_values", ["facet_id"], name: "index_facet_values_on_facet_id"
+  add_index "facet_values", ["facet_value_type_id"], name: "index_facet_values_on_facet_value_type_id"
+
+  create_table "facets", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "facets_products", id: false, force: true do |t|
+    t.integer "facet_id",   null: false
+    t.integer "product_id", null: false
+  end
+
+  add_index "facets_products", ["facet_id", "product_id"], name: "index_facets_products_on_facet_id_and_product_id", unique: true
+
+  create_table "product_photos", force: true do |t|
+    t.string   "name"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo"
+  end
+
+  add_index "product_photos", ["product_id"], name: "index_product_photos_on_product_id"
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["user_id"], name: "index_products_on_user_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @product.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @product.user %>
+</p>
+<p>
+    <strong>Параметры:</strong>
+    <% @product.facets.each do |facet| %>
+        <%= facet.name %> - 
+        <% facet.facet_values.each do |fv| %>
+            <%= fv.value %>
+        <% end %>
+    <% end %>
+</p>
+<p>
+    <strong>Фото продукта:</strong>
+    <% @product.photos.each do |photo| %>
+        <%= image_tag photo.photo.url.to_s %>
+    <% end %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

@@ -1,0 +1,2 @@
+class FacetValuesController < ApplicationController
+end
