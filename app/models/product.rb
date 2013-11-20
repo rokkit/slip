@@ -12,5 +12,8 @@ class Product < ActiveRecord::Base
     text :facets do
       facets.map(&:name)
     end
+    text :facets_values do
+      facets.map { |facet| facet.facet_values.map {|fv| fv.value } }
+    end
   end
 end

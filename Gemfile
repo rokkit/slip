@@ -24,6 +24,9 @@ gem 'sunspot_solr'
 gem "rmagick"
 gem "carrierwave"
 
+gem 'activeadmin', github: 'gregbell/active_admin'
+
+
 group :production do
   gem 'mysql2'
 end
