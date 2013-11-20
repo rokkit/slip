@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem "jquery-fileupload-rails"
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'russian'
 gem 'progress_bar'
 gem 'cancan'
 gem 'devise'

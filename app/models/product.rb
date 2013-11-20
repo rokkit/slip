@@ -16,4 +16,10 @@ class Product < ActiveRecord::Base
       facets.map { |facet| facet.facet_values.map {|fv| fv.value } }
     end
   end
+  
+  
+  def created_at_format
+    self.created_at.strftime("%d.%m.%Y %R")
+  end
+  
 end
