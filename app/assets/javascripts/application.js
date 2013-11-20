@@ -19,8 +19,8 @@
 var ready;
 ready = function(){
 	$("#slides").slidesjs({
-		width: 805,
-		height: 328
+		width: 600,
+		height: 460
 	});
 }
 $(document).ready(ready);
