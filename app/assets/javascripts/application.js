@@ -19,7 +19,7 @@
 var ready;
 ready = function(){
 	$("#slides").slidesjs({
-		width: 600,
+		width: 660,
 		height: 460
 	});
 }
