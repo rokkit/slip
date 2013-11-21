@@ -1,10 +1,27 @@
 ru:
   activerecord:
     models:
+        user:
+            one: "Клиент"
+            few: "Клиенты"
+            many: "Клиентов"
+            other: "Клиенты"
         product:
             one: "Товар"
-            many: "Товары"
+            few: "Товары"
+            many: "Товаров"
+            other: "Товары"
     attributes:
+      user:
+          current_sign_in_at: "Текущий вход"
+          last_sign_in_at: "Последний вход"
+          sign_in_count: "Всего посещений"
+          
       product:
           name: "Наменование"
           content: "Описание"
+          user: "Пользователь"
+          photos: "Фотографии"
+          facets: "Параметры"
+          created_at: "Добавлен"
+          updated_at: "Обновлён"

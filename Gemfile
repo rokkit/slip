@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem "jquery-fileupload-rails"
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'russian'
 gem 'progress_bar'
 gem 'cancan'
 gem 'devise'
@@ -23,6 +24,9 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem "rmagick"
 gem "carrierwave"
+
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 
 group :production do
   gem 'mysql2'
