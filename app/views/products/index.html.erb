@@ -1,31 +1,17 @@
 <h1>Результаты поиска</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Наименование</th>
-      <th>Описание</th>
-      <th>Добавил</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= image_tag product.photos.first.photo.url(:thumb)%></td>
-        <td><%= product.name %></td>
-        <td><%= product.content %></td>
-        <td><%= product.user %></td>
-        <td><%= link_to 'Открыть', product %></td>
-        <td><%= link_to 'Изменить', edit_product_path(product) %></td>
-        <td><%= link_to 'Удалить', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<ul class="products">
+<% @products.each do |product| %>
+    <li class="product">
+		<%= image_tag product.photos.first.photo.url(:thumb), class:"prod-img" %>
+		<h3 class="prod-name"><%= link_to product.name, product %></h3>
+    	<p class="prod-descr"><%= product.content %></p>
+    	<p class="user-added"><%= product.user %></p>
+    	<p class="action-links"><%= link_to 'Изменить', edit_product_path(product) %>
+    	<%= link_to 'Удалить', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+	</li>
+<% end %>
+</ul>
 <br>
 
 <%= link_to 'Добавить товар', new_product_path %>

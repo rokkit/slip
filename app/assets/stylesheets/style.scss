@@ -73,6 +73,85 @@ body {
 
 //====== CONTENT
 
+
+//=== PRODUCTS
+.products {
+	@include clear-ul;
+	.product {
+		.prod-img {
+			float: left;
+			margin:0 10px 10px 0;
+		}
+		.prod-name {
+			color: $green;
+			margin: 0;
+		}
+		.prod-descr {
+			margin: 0 0 1em 0;
+		}
+		.user-added {
+			font-size: .9em;
+		}
+		.action-links {
+			
+		}
+	}
+}
+
+// new product
+#new_product {
+	.form-inputs {
+		label {
+			display: block;
+		}
+		input[type="text"], textarea {
+			border: 1px solid darken($light-gray, 20%);
+			padding: 3px;
+			border-radius: 2px;
+			&:focus {
+				outline-color: darken($light-gray, 5%);
+			}
+		}
+		.product_name {
+			input {
+				display: block;
+				width: 95%;
+			}
+		}
+		.product_content {
+			textarea {
+				width: 98%;
+				height: 120px;
+			}
+		}
+		fieldset {
+			border: 0;
+			background-color: rgba(255,255,255,.4);
+			border-radius: 5px;
+		}
+		.facet-container {
+			position: relative;
+			.remove-facet {
+				position: absolute;
+				top: 24px;
+				left: 150px;
+			}
+			.add_fields {
+				clear: both;
+				@include icon($icon-left: "\229E", $size: 2em)
+			}
+			.facet-value {
+				width: 100px;
+				float: left;
+			}
+		}
+		
+	}
+	.form-actions {
+		clear: both;
+	}
+}
+
 //=== HOMEPAGE
 #homepage {
 	.specials {
@@ -172,4 +251,17 @@ body {
 
 #footer {
 	border-top: 1px solid $dark-gray;
+}
+
+//====== MISC
+.btn {
+	border: 0 none;
+	background-color: $green;
+	cursor: pointer;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 1.3em;
+	padding: 5px 8px;
+	margin: 1em 0;
+	@include single-text-shadow(1px, 1px);
 }

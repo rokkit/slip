@@ -1,34 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<h2><%= @product.name %></h2>
+
+<% @product.photos.each do |photo| %>
+    <%= image_tag photo.photo.url(:main).to_s %>
+<% end %>
 
 <p>
-  <strong>Content:</strong>
   <%= @product.content %>
 </p>
 
-<p>
+<!-- <p>
   <strong>User:</strong>
   <%= @product.user %>
-</p>
+</p> -->
 <p>
-    <strong>Параметры:</strong>
+    <h3>Параметры:</h3>
     <% @product.facets.each do |facet| %>
-        <%= facet.name %> - 
+        <strong><%= facet.name %></strong> - 
         <% facet.facet_values.each do |fv| %>
             <%= fv.value %>
         <% end %>
     <% end %>
 </p>
-<p>
-    <strong>Фото продукта:</strong>
-    <% @product.photos.each do |photo| %>
-        <%= image_tag photo.photo.url(:main).to_s %>
-    <% end %>
-</p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Редактировать', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

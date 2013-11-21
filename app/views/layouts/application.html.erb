@@ -7,19 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<!-- USER MENU 
-        <nav id="top-nav">
+	<nav id="top-nav">
 		<div class="region-inner">
 			<ul>
-				<li><a href="#">link 1</a></li>
-				<li><a href="#">link 2</a></li>
-				<li><a href="#">link 3</a></li>
-				<li><a href="#">link 4</a></li>
-				<li><a href="#">link 5</a></li>
-				<li><a href="#">link 6</a></li>
+				<%= render "layouts/navigation_links" %>
 			</ul>
 		</div>
-	</nav> -->
+	</nav>
 	<header id="header">
 		<div class="header-left-image"><div class="header-right-image">
 			<div id="branding" class="region-inner">
@@ -31,7 +25,7 @@
 						<%= render "products/search" %>
 					</div></div>
 				</div>
-			    <%= render "layouts/navigation_links"  %>
+			
 			</div>
 		</div></div>
 	</header>

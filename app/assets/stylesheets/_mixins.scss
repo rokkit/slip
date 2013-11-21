@@ -5,13 +5,36 @@
     display: $display;
 }
 
+// Icons
+@mixin icon($icon-left: false, $icon-right: false, $color: inherit, $size: inherit) {
+	@if ($icon-left) {
+		&:before {
+			font-family: 'entypo';
+			content: $icon-left;
+			margin-right: 5px;
+			color: $color;
+			font-size: $size;
+		}
+	} @else if ($icon-right) {
+		&:after {
+			font-family: 'entypo';
+			content: $icon-right;
+			margin-left: 5px;
+			color: $color;
+			font-size: $size;
+		}
+	} @else {
+		font-family: 'entypo';
+	}
+}
+
 // px to em
 @function em($px, $base: $base-font-size) {
     @return ($px / $base) * 1em;
 }
 
-// Clear nav
-@mixin clear-nav {
+// CLear ul
+@mixin clear-ul {
     padding: 0;
     margin: 0;
     li {
@@ -19,6 +42,13 @@
         list-style-image: none;
         padding: 0;
         margin: 0;
+	}
+}
+
+// Clear nav
+@mixin clear-nav {
+@include clear-ul;	
+	li {
         a {
             display: block;
             padding: 0 em(6px);
